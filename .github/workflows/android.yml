@@ -35,7 +35,7 @@ jobs:
       - name: APK oluştur
         run: |
           export PATH="$HOME/.local/bin:$PATH"
-          buildozer android debug
+         BUILDOZER_ACCEPT_SDK_LICENSE=1 buildozer android debug
 
       - name: APK dosyasını kaydet
         uses: actions/upload-artifact@v4
