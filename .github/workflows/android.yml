@@ -11,33 +11,33 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      - name: Kaynak kodu al
+      - name: get the source code
         uses: actions/checkout@v4
 
-      - name: Java 17 kur
+      - name: setup java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "17"
 
-      - name: Gerekli paketleri kur
+      - name: Install the necessary packages
         run: |
           sudo apt-get update
           sudo apt-get install -y git zip unzip python3-pip \
             build-essential autoconf libtool pkg-config \
             zlib1g-dev libncurses5-dev libffi-dev libssl-dev
 
-      - name: Buildozer kur
+      - name: Install Buildozer
         run: |
           python3 -m pip install --user --upgrade pip
           python3 -m pip install --user buildozer Cython==0.29.36
 
-      - name: APK oluştur
+      - name: Run Buildozer
         run: |
           export PATH="$HOME/.local/bin:$PATH"
        yes ı   BUILDOZER_ACCEPT_SDK_LICENSE=1 buildozer android debug
 
-      - name: APK dosyasını kaydet
+      - name: Save the APK file
         uses: actions/upload-artifact@v4
         with:
           name: Piyasa-Gozu-APK
