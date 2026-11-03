@@ -13,7 +13,6 @@ fullscreen = 0
 log_level = 2
 warn_on_root = 1
 
-[app]
 android.permissions = INTERNET
 android.api = 35
 android.minapi = 23
