@@ -8,9 +8,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+     runs-on: ubuntu-22.04
 
-        steps:
+     steps:
       - name: get the source code
         uses: actions/checkout@v4
 
